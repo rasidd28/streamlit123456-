@@ -21,7 +21,7 @@ if user_input:
     }
 
     response = requests.post(
-        "https://rahulsiddhu200528.app.n8n.cloud/webhook-test/5b5249d1-86af-4066-be82-510562045f9e",
+        "https://rahulsiddhu200528.app.n8n.cloud/webhook/5b5249d1-86af-4066-be82-510562045f9e",
         json=payload
     )
 
@@ -37,4 +37,5 @@ if user_input:
 
     with st.chat_message("assistant"):
         st.write(bot_reply)
+
 
