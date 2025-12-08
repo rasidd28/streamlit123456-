@@ -21,7 +21,7 @@ if user_input:
     }
 
     response = requests.post(
-        "http://localhost:5678/webhook/37b860de-9c3b-4e77-85b5-54bd05c0771f",
+        "https://bavarchibiryni.app.n8n.cloud/webhook/37b860de-9c3b-4e77-85b5-54bd05c0771f",
         json=payload
     )
 
@@ -37,6 +37,7 @@ if user_input:
 
     with st.chat_message("assistant"):
         st.write(bot_reply)
+
 
 
 
