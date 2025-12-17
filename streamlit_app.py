@@ -15,6 +15,9 @@ st.set_page_config(
 # Custom CSS for animations and styling
 st.markdown("""
     <style>
+    .stChatMessage {
+        border-radius: 10px;
+    }
     .metric-card {
         background: #f8f9fa;
         padding: 20px;
@@ -204,15 +207,15 @@ if len(st.session_state.messages) == 0:
     with st.container():
         st.markdown("""
         <div class="metric-card">
-            <h3>👋 Welcome to NIRF Ranking Advisor!</h3>
-            <p>I can help you with:</p>
-            <ul>
+            <h3 style="color: #1f77b4;">👋 Welcome to NIRF Ranking Advisor!</h3>
+            <p style="margin-bottom: 15px;">I can help you with:</p>
+            <ul style="line-height: 1.8;">
                 <li>🔍 <b>Gap Analysis:</b> Identify weaknesses in NIRF parameters</li>
                 <li>📊 <b>Data Analysis:</b> Review metrics and performance indicators</li>
                 <li>💡 <b>Suggestions:</b> Get actionable improvement strategies</li>
                 <li>📈 <b>Best Practices:</b> Learn from top-ranked institutions</li>
             </ul>
-            <p><i>Try asking: "What are the key loopholes in our NIRF submission?" or "How can we improve our research output?"</i></p>
+            <p style="margin-top: 15px; font-style: italic; color: #666;">Try asking: "What are the key loopholes in our NIRF submission?" or "How can we improve our research output?"</p>
         </div>
         """, unsafe_allow_html=True)
 
