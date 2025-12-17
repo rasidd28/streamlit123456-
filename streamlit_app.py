@@ -19,12 +19,11 @@ st.markdown("""
         border-radius: 10px;
     }
     .metric-card {
-        background: #f8f9fa;
+        background: transparent;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         margin: 10px 0;
-        border: 1px solid #e9ecef;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     </style>
 """, unsafe_allow_html=True)
@@ -207,15 +206,15 @@ if len(st.session_state.messages) == 0:
     with st.container():
         st.markdown("""
         <div class="metric-card">
-            <h3 style="color: #1f77b4;">👋 Welcome to NIRF Ranking Advisor!</h3>
-            <p style="margin-bottom: 15px;">I can help you with:</p>
-            <ul style="line-height: 1.8;">
-                <li>🔍 <b>Gap Analysis:</b> Identify weaknesses in NIRF parameters</li>
-                <li>📊 <b>Data Analysis:</b> Review metrics and performance indicators</li>
-                <li>💡 <b>Suggestions:</b> Get actionable improvement strategies</li>
-                <li>📈 <b>Best Practices:</b> Learn from top-ranked institutions</li>
+            <h3 style="color: #1f77b4; margin-bottom: 15px;">👋 Welcome to NIRF Ranking Advisor!</h3>
+            <p style="margin-bottom: 15px; font-size: 16px;">I can help you with:</p>
+            <ul style="line-height: 2; list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 10px;">🔍 <b>Gap Analysis:</b> Identify weaknesses in NIRF parameters</li>
+                <li style="margin-bottom: 10px;">📊 <b>Data Analysis:</b> Review metrics and performance indicators</li>
+                <li style="margin-bottom: 10px;">💡 <b>Suggestions:</b> Get actionable improvement strategies</li>
+                <li style="margin-bottom: 10px;">📈 <b>Best Practices:</b> Learn from top-ranked institutions</li>
             </ul>
-            <p style="margin-top: 15px; font-style: italic; color: #666;">Try asking: "What are the key loopholes in our NIRF submission?" or "How can we improve our research output?"</p>
+            <p style="margin-top: 20px; font-style: italic; color: #666; font-size: 14px;">Try asking: "What are the key loopholes in our NIRF submission?" or "How can we improve our research output?"</p>
         </div>
         """, unsafe_allow_html=True)
 
