@@ -16,7 +16,7 @@ st.set_page_config(
 st.markdown("""
     <style>
     .main {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
     .stChatMessage {
         animation: slideIn 0.3s ease-out;
@@ -167,7 +167,7 @@ if user_input:
                 
                 # Make API request
                 response = requests.post(
-                    "https://bavarchibiryani.app.n8n.cloud/webhook/37b860de-9c3b-4e77-85b5-54bd05c0771f",
+                    "https://bavarchibiryni.app.n8n.cloud/webhook/37b860de-9c3b-4e77-85b5-54bd05c0771f",
                     json=payload,
                     timeout=30
                 )
