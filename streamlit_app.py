@@ -142,7 +142,7 @@ if user_input:
                 
                 # Make API request
                 response = requests.post(
-                    "https://bavarchibiryni.app.n8n.cloud/webhook-test/37b860de-9c3b-4e77-85b5-54bd05c0771f",
+                    "https://bavarchibiryani.app.n8n.cloud/webhook/37b860de-9c3b-4e77-85b5-54bd05c0771f",
                     json=payload,
                     timeout=30
                 )
@@ -153,7 +153,7 @@ if user_input:
                     try:
                         bot_reply = parse_bot_response(response.json())
                     except json.JSONDecodeError:
-                        bot_reply = response.text
+                        bot_reply = "I received a response but couldn't process it properly. Please try rephrasing your question."
                     
                     # Stream the response
                     full_response = ""
@@ -170,7 +170,8 @@ if user_input:
                     })
                     
                 else:
-                    error_msg = f"⚠️ Server returned status code: {response.status_code}\n\n{response.text}"
+                    # User-friendly error message without exposing backend details
+                    error_msg = "⚠️ I'm having trouble connecting to the service right now. Please try again in a moment."
                     message_placeholder.error(error_msg)
                     st.session_state.messages.append({
                         "role": "assistant",
@@ -178,7 +179,7 @@ if user_input:
                     })
             
             except requests.exceptions.Timeout:
-                error_msg = "⏱️ Request timed out. Please try again."
+                error_msg = "⏱️ The request is taking too long. Please try again."
                 message_placeholder.error(error_msg)
                 st.session_state.messages.append({
                     "role": "assistant",
@@ -186,7 +187,7 @@ if user_input:
                 })
             
             except requests.exceptions.ConnectionError:
-                error_msg = "🔌 Connection error. Please check your internet connection."
+                error_msg = "🔌 Unable to connect to the service. Please check your internet connection and try again."
                 message_placeholder.error(error_msg)
                 st.session_state.messages.append({
                     "role": "assistant",
@@ -194,7 +195,7 @@ if user_input:
                 })
             
             except Exception as e:
-                error_msg = f"❌ Unexpected error: {str(e)}"
+                error_msg = "❌ Something went wrong. Please try again or contact support if the issue persists."
                 message_placeholder.error(error_msg)
                 st.session_state.messages.append({
                     "role": "assistant",
@@ -225,4 +226,3 @@ st.markdown("""
     Session ID: <code>{}</code> | Powered by AI
 </div>
 """.format(session_id), unsafe_allow_html=True)
-
