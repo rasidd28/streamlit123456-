@@ -15,40 +15,13 @@ st.set_page_config(
 # Custom CSS for animations and styling
 st.markdown("""
     <style>
-    .main {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    }
-    .stChatMessage {
-        animation: slideIn 0.3s ease-out;
-    }
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
     .metric-card {
-        background: white;
+        background: #f8f9fa;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         margin: 10px 0;
-        animation: fadeIn 0.5s ease-in;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    .pulse {
-        animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
+        border: 1px solid #e9ecef;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -167,7 +140,7 @@ if user_input:
                 
                 # Make API request
                 response = requests.post(
-                    "https://bavarchibiryni.app.n8n.cloud/webhook/37b860de-9c3b-4e77-85b5-54bd05c0771f",
+                    "https://bavarchibiryani.app.n8n.cloud/webhook/37b860de-9c3b-4e77-85b5-54bd05c0771f",
                     json=payload,
                     timeout=30
                 )
