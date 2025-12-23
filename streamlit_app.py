@@ -119,7 +119,7 @@ if user_input:
                 
                 # UPDATED: Timeout set to 180 seconds as requested
                 response = requests.post(
-                    "https://ronni123.app.n8n.cloud/webhook-test/37b860de-9c3b-4e77-85b5-54bd05c0771f",
+                    "https://ronni123.app.n8n.cloud/webhook/37b860de-9c3b-4e77-85b5-54bd05c0771f",
                     json=payload,
                     timeout=180 
                 )
@@ -152,3 +152,4 @@ if len(st.session_state.messages) == 0:
 # Footer
 st.divider()
 st.markdown(f"<div style='text-align: center; color: #666; font-size: 0.8em;'>Session: {session_id}</div>", unsafe_allow_html=True)
+
