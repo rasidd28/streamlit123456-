@@ -186,7 +186,7 @@ with col_main:
             st.markdown(message["content"])
 
 def parse_bot_response(response_data):
-    """Enhanced parsing with better formatting"""
+    """Enhanced parsing with refined, structured formatting"""
     try:
         # Case 1: structured NIRF JSON
         if isinstance(response_data, dict) and "data" in response_data:
@@ -197,94 +197,189 @@ def parse_bot_response(response_data):
                     institute = details.get("institute_name", "Institute")
                     points = details.get("factual_points", [])
 
-                    insights.append(f"### 📊 {category.upper()} Analysis - {institute}\n")
+                    # Header with institute name
+                    insights.append(f"## 📊 {category.upper()} Analysis\n")
+                    insights.append(f"**Institution:** {institute}\n\n")
 
                     if category.lower() == "rpc" or category.lower() == "rp":
-                        insights.append(
-                            '<div class="success-box">'
-                            "<strong>🔬 Research & Professional Practice - Key Priority</strong><br/>"
-                            "This parameter contributes 30% to your NIRF ranking."
-                            "</div>\n"
-                        )
-                        insights.append("#### 🎯 Recommended Improvements:\n")
-                        insights.append(
-                            "1. **Industry Collaboration**: Increase industry-sponsored research projects by 25%\n"
-                            "2. **Grant Applications**: Encourage faculty to apply for multi-agency grants (DST, SERB, DBT)\n"
-                            "3. **PhD Output**: Improve PhD graduation rate - target 15+ per year\n"
-                            "4. **Consultancy Revenue**: Convert consultancy work into high-value funded projects (₹10L+)\n"
-                            "5. **Publications**: Focus on Q1 journals and high-impact conferences\n"
-                            "6. **Patents**: File and publish at least 5 patents annually\n"
-                        )
+                        # Importance box
+                        insights.append("> 🔬 **Research & Professional Practice - Key Priority**  \n")
+                        insights.append("> This parameter contributes **30%** to your NIRF ranking.\n\n")
+                        
+                        # Strategic improvements section
+                        insights.append("### 🎯 Strategic Improvements\n\n")
+                        
+                        insights.append("#### 1️⃣ Industry Collaboration\n")
+                        insights.append("- Increase industry-sponsored research projects by **25%**\n")
+                        insights.append("- Target partnerships with leading companies in your domain\n")
+                        insights.append("- Focus on projects worth **₹10L+**\n\n")
+                        
+                        insights.append("#### 2️⃣ Grant Applications\n")
+                        insights.append("- Encourage faculty to apply for multi-agency grants:\n")
+                        insights.append("  - DST (Department of Science & Technology)\n")
+                        insights.append("  - SERB (Science & Engineering Research Board)\n")
+                        insights.append("  - DBT (Department of Biotechnology)\n")
+                        insights.append("- Target: **5+ new grants** per year\n\n")
+                        
+                        insights.append("#### 3️⃣ PhD Output\n")
+                        insights.append("- Current goal: Improve PhD graduation rate\n")
+                        insights.append("- **Target: 15+ PhD graduates per year**\n")
+                        insights.append("- Streamline thesis submission processes\n\n")
+                        
+                        insights.append("#### 4️⃣ Consultancy Revenue\n")
+                        insights.append("- Convert consultancy work into high-value funded projects\n")
+                        insights.append("- Minimum project value: **₹10L+**\n")
+                        insights.append("- Document all consultancy activities properly\n\n")
+                        
+                        insights.append("#### 5️⃣ Publications\n")
+                        insights.append("- Focus on **Q1 journals** (high impact factor)\n")
+                        insights.append("- Target high-impact conferences (IEEE, ACM, Springer)\n")
+                        insights.append("- Encourage interdisciplinary collaborations\n\n")
+                        
+                        insights.append("#### 6️⃣ Patents\n")
+                        insights.append("- File and publish at least **5 patents annually**\n")
+                        insights.append("- Focus on both filed and published/granted patents\n")
+                        insights.append("- Provide IP awareness training to faculty\n\n")
 
                     elif category.lower() == "tlr":
-                        insights.append(
-                            '<div class="info-box">'
-                            "<strong>👨‍🏫 Teaching, Learning & Resources</strong>"
-                            "</div>\n"
-                        )
-                        insights.append("#### 🎯 Action Items:\n")
-                        insights.append(
-                            "1. **Faculty-Student Ratio**: Maintain 1:15 or better\n"
-                            "2. **Permanent Faculty**: Increase percentage of permanent faculty to 75%+\n"
-                            "3. **Infrastructure**: Upgrade laboratory and computing facilities\n"
-                            "4. **Digital Resources**: Subscribe to premium e-journals and databases\n"
-                            "5. **Expenditure**: Increase per-student expenditure on teaching-learning\n"
-                        )
+                        insights.append("> 👨‍🏫 **Teaching, Learning & Resources**  \n")
+                        insights.append("> Weightage: **30%** of total NIRF score\n\n")
+                        
+                        insights.append("### 🎯 Action Items\n\n")
+                        
+                        insights.append("#### 1️⃣ Faculty-Student Ratio\n")
+                        insights.append("- Maintain optimal ratio: **1:15 or better**\n")
+                        insights.append("- Recruit additional qualified faculty\n\n")
+                        
+                        insights.append("#### 2️⃣ Permanent Faculty\n")
+                        insights.append("- Target: **75%+** permanent faculty positions\n")
+                        insights.append("- Convert contractual positions to permanent\n")
+                        insights.append("- Hire faculty with PhD qualifications\n\n")
+                        
+                        insights.append("#### 3️⃣ Infrastructure Enhancement\n")
+                        insights.append("- Upgrade laboratory facilities\n")
+                        insights.append("- Modernize computing infrastructure\n")
+                        insights.append("- Improve library and digital resources\n\n")
+                        
+                        insights.append("#### 4️⃣ Digital Resources\n")
+                        insights.append("- Subscribe to premium e-journals (IEEE, Springer, Elsevier)\n")
+                        insights.append("- Provide access to research databases\n")
+                        insights.append("- Invest in e-learning platforms\n\n")
+                        
+                        insights.append("#### 5️⃣ Financial Investment\n")
+                        insights.append("- Increase per-student expenditure on teaching-learning\n")
+                        insights.append("- Allocate budget for faculty development programs\n\n")
 
                     elif category.lower() == "go":
-                        insights.append(
-                            '<div class="success-box">'
-                            "<strong>🎓 Graduation Outcomes - 20% Weightage</strong>"
-                            "</div>\n"
-                        )
-                        insights.append("#### 🎯 Strategies:\n")
-                        insights.append(
-                            "1. **Placements**: Target 85%+ placement rate with median salary ₹6L+\n"
-                            "2. **Higher Studies**: Track and report students pursuing MS/PhD\n"
-                            "3. **Entrepreneurship**: Support student startups and count as outcomes\n"
-                            "4. **Alumni Tracking**: Implement robust alumni database system\n"
-                            "5. **Career Services**: Strengthen training and placement cell\n"
-                        )
+                        insights.append("> 🎓 **Graduation Outcomes**  \n")
+                        insights.append("> Weightage: **20%** of total NIRF score\n\n")
+                        
+                        insights.append("### 🎯 Strategic Focus\n\n")
+                        
+                        insights.append("#### 1️⃣ Placement Excellence\n")
+                        insights.append("- Target placement rate: **85%+**\n")
+                        insights.append("- Median salary goal: **₹6L+ per annum**\n")
+                        insights.append("- Strengthen industry partnerships\n\n")
+                        
+                        insights.append("#### 2️⃣ Higher Studies Tracking\n")
+                        insights.append("- Track students pursuing **MS/PhD programs**\n")
+                        insights.append("- Document admissions to premier institutions\n")
+                        insights.append("- Maintain updated alumni database\n\n")
+                        
+                        insights.append("#### 3️⃣ Entrepreneurship Support\n")
+                        insights.append("- Count student startups as positive outcomes\n")
+                        insights.append("- Provide incubation support\n")
+                        insights.append("- Offer entrepreneurship courses\n\n")
+                        
+                        insights.append("#### 4️⃣ Alumni Network\n")
+                        insights.append("- Implement robust alumni tracking system\n")
+                        insights.append("- Regular alumni engagement programs\n")
+                        insights.append("- Document career progression\n\n")
+                        
+                        insights.append("#### 5️⃣ Career Services\n")
+                        insights.append("- Strengthen Training & Placement Cell\n")
+                        insights.append("- Conduct regular skill development workshops\n")
+                        insights.append("- Industry mentorship programs\n\n")
 
                     elif category.lower() == "oi":
-                        insights.append(
-                            '<div class="info-box">'
-                            "<strong>🌍 Outreach & Inclusivity</strong>"
-                            "</div>\n"
-                        )
-                        insights.append("#### 🎯 Focus Areas:\n")
-                        insights.append(
-                            "1. **Gender Diversity**: Increase female enrollment to 30%+\n"
-                            "2. **Regional Diversity**: Admit students from diverse states (15+ states)\n"
-                            "3. **Economic Support**: Provide scholarships to economically weaker sections\n"
-                            "4. **Facilities**: Ensure differently-abled friendly infrastructure\n"
-                            "5. **Community Engagement**: Organize outreach programs and workshops\n"
-                        )
+                        insights.append("> 🌍 **Outreach & Inclusivity**  \n")
+                        insights.append("> Weightage: **10%** of total NIRF score\n\n")
+                        
+                        insights.append("### 🎯 Focus Areas\n\n")
+                        
+                        insights.append("#### 1️⃣ Gender Diversity\n")
+                        insights.append("- Target female enrollment: **30%+**\n")
+                        insights.append("- Create women-friendly campus environment\n")
+                        insights.append("- Implement specific women support programs\n\n")
+                        
+                        insights.append("#### 2️⃣ Regional Diversity\n")
+                        insights.append("- Admit students from **15+ different states**\n")
+                        insights.append("- Promote national-level awareness campaigns\n")
+                        insights.append("- Participate in centralized counseling\n\n")
+                        
+                        insights.append("#### 3️⃣ Economic Support\n")
+                        insights.append("- Scholarships for economically weaker sections\n")
+                        insights.append("- Fee waivers and financial aid programs\n")
+                        insights.append("- Government scheme participation (EWS, OBC)\n\n")
+                        
+                        insights.append("#### 4️⃣ Accessibility\n")
+                        insights.append("- Differently-abled friendly infrastructure\n")
+                        insights.append("- Ramps, elevators, and assistive technologies\n")
+                        insights.append("- Dedicated support cell\n\n")
+                        
+                        insights.append("#### 5️⃣ Community Engagement\n")
+                        insights.append("- Organize outreach programs and workshops\n")
+                        insights.append("- Rural and urban community initiatives\n")
+                        insights.append("- Social responsibility projects\n\n")
 
                     elif category.lower() == "pr":
-                        insights.append(
-                            '<div class="warning-box">'
-                            "<strong>👁️ Perception - Often Overlooked!</strong>"
-                            "</div>\n"
-                        )
-                        insights.append("#### 🎯 Visibility Boosters:\n")
-                        insights.append(
-                            "1. **Publications**: Ensure visibility in peer-reviewed journals\n"
-                            "2. **Rankings**: Participate in domain-specific rankings and competitions\n"
-                            "3. **MOOCs**: Develop and offer online courses on NPTEL/Swayam\n"
-                            "4. **Events**: Host national conferences and hackathons\n"
-                            "5. **Media**: Increase media presence and research highlights\n"
-                            "6. **Alumni**: Strengthen alumni network and testimonials\n"
-                        )
+                        insights.append("> 👁️ **Perception - Often Overlooked!**  \n")
+                        insights.append("> Weightage: **10%** of total NIRF score\n\n")
+                        
+                        insights.append("### 🎯 Visibility Enhancement\n\n")
+                        
+                        insights.append("#### 1️⃣ Academic Publications\n")
+                        insights.append("- Ensure high visibility in peer-reviewed journals\n")
+                        insights.append("- Focus on indexed publications (Scopus, Web of Science)\n")
+                        insights.append("- Increase citation impact\n\n")
+                        
+                        insights.append("#### 2️⃣ Rankings & Recognition\n")
+                        insights.append("- Participate in domain-specific rankings\n")
+                        insights.append("- Win national/international competitions\n")
+                        insights.append("- Host and win hackathons, coding contests\n\n")
+                        
+                        insights.append("#### 3️⃣ Online Courses (MOOCs)\n")
+                        insights.append("- Develop courses on **NPTEL/Swayam platforms**\n")
+                        insights.append("- Reach wider audience through online education\n")
+                        insights.append("- Faculty as MOOC instructors\n\n")
+                        
+                        insights.append("#### 4️⃣ Events & Conferences\n")
+                        insights.append("- Host **national/international conferences**\n")
+                        insights.append("- Organize technical symposiums\n")
+                        insights.append("- Student and faculty paper presentations\n\n")
+                        
+                        insights.append("#### 5️⃣ Media Presence\n")
+                        insights.append("- Increase visibility in news media\n")
+                        insights.append("- Highlight research breakthroughs\n")
+                        insights.append("- Social media engagement strategy\n\n")
+                        
+                        insights.append("#### 6️⃣ Alumni & Employer Feedback\n")
+                        insights.append("- Strengthen alumni testimonials\n")
+                        insights.append("- Gather positive employer feedback\n")
+                        insights.append("- Showcase successful alumni achievements\n\n")
 
+                    # Reference data section with better formatting
                     if points:
-                        insights.append("\n#### 📋 Reference Data Points:\n")
-                        for i, p in enumerate(points[:5], 1):
-                            insights.append(f"{i}. {p}\n")
+                        insights.append("---\n\n")
+                        insights.append("### 📋 Reference Data Points\n\n")
+                        for i, p in enumerate(points[:6], 1):
+                            # Clean and format each point
+                            clean_point = p.strip()
+                            insights.append(f"**{i}.** {clean_point}\n\n")
 
-                    insights.append("\n---\n")
+                    insights.append("---\n\n")
 
-            return "\n".join(insights)
+            return "".join(insights)
 
         # Case 2: normal text response
         if isinstance(response_data, dict):
